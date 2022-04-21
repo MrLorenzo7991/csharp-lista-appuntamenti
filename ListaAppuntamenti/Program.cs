@@ -3,7 +3,26 @@ List<Appuntamento> listaAppuntamenti = new List<Appuntamento>();
 
 Console.WriteLine("Benvenuto nella tua agenda!");
 Console.WriteLine("Quanti appuntamenti vuoi aggiungere?");
-int numeroDiAppuntamenti = int.Parse(Console.ReadLine());           //TODO: controllo input numerico
+int ChiediNumeroDiAppuntamenti()
+{
+    int numeroDiAppuntamenti = 0;
+    bool numeroDiAppuntamentiCorretto = false;
+    while (!numeroDiAppuntamentiCorretto)
+    {
+        if (int.TryParse(Console.ReadLine(), out int result))
+        {
+            numeroDiAppuntamenti = result;
+            numeroDiAppuntamentiCorretto = true;
+        }
+        else
+        {
+            Console.WriteLine("Inserisci un numero intero");
+        }
+
+    }
+    return numeroDiAppuntamenti;
+}
+int numeroDiAppuntamenti = ChiediNumeroDiAppuntamenti();
 
 for (int i = 0; i < numeroDiAppuntamenti; i++)
 {
@@ -18,9 +37,11 @@ for (int i = 0; i < numeroDiAppuntamenti; i++)
     {
         DateTime dataOraAppuntamento = DateTime.Now;
         bool formatoDataCorretto = false;
+
         while (!formatoDataCorretto)
         {
-        Console.WriteLine("Aggiungi la data e l'ora del tuo appuntamento: [gg/mm/aaaa hh:mm]");
+            Console.WriteLine("Aggiungi la data e l'ora del tuo appuntamento: [gg/mm/aaaa hh:mm]");
+
             try
             {
                 dataOraAppuntamento = DateTime.Parse(Console.ReadLine());                          //aggiungere controllo data corretta
