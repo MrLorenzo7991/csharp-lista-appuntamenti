@@ -69,7 +69,7 @@ namespace ListaAppuntamenti
             Console.WriteLine("------------------");
             Console.WriteLine("Appuntamento: " + nomeAppuntamento);
             Console.WriteLine("Presso: " + localitaAppuntamento);
-            Console.WriteLine("Alle ore: " + dataOrarioAppuntamento);
+            Console.WriteLine("In data: " + dataOrarioAppuntamento);
 
         }
     }
